@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   
+     >
+
+        
+<TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="" />
+<TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="" />
+<TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:textColor="#000080"
+    android:text="WEIGHT OF PATIENT" />
+<TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="" />
+    
+<TextView 
+    android:id="@+id/tvOvalue"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Observation value" />
+
+        <EditText
+            android:id="@+id/etuname"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:inputType="textShortMessage" />
+<TextView 
+    android:id="@+id/tvOdatetime"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Obs Datetime" />
+
+        <EditText
+            android:id="@+id/etOdatetime"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:inputType="textShortMessage" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:onClick="clickButton1"
+            android:text="Close" />
+
+        <CheckBox 
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="#0000"
+            />
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:onClick="clickButton"
+            android:text="Save" />
+
+    </LinearLayout>
+    
