@@ -8,13 +8,22 @@
 
 package com.muzima.adapters.observations;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import com.example.muzima.CustomAlert;
 import com.muzima.R;
 import com.muzima.api.model.Encounter;
 import com.muzima.api.model.Observation;
@@ -137,6 +146,59 @@ public class ObservationsByEncounterAdapter extends ObservationsAdapter<Encounte
         protected int getObservationElementHeight() {
             return R.dimen.observation_element_by_encounter_height;
         }
+        Dialog d = new Dialog(this);
+        d.setContentView();
+		d.show();
+    }
+    private static final OnClickListener cancel_button_click_listener = null;
+    TextView concept_info;
+    Button   btnClosePopup;
+
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.item_observation_by_encounter);
+    concept_info = (TextView) findViewById(R.id.concept_info);
+    concept_info.setOnClickListener(new OnClickListener() {
+
+    @Override
+    public void onClick(View v) {
+    // TODO Auto-generated method stub
+    initiatePopupWindow();
+    }
+    });
+
+    }
+
+    private PopupWindow pwindo;
+
+    private void initiatePopupWindow() {
+    try {
+    // We need to get the instance of the LayoutInflater
+    LayoutInflater inflater = (LayoutInflater) CustomAlert.this
+    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    View layout = inflater.inflate(R.layout.activity_mainn,
+    (ViewGroup) findViewById(R.id.popup_element));
+    pwindo = new PopupWindow(layout, 300, 370, true);
+    pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+    btnClosePopup = (Button) layout.findViewById(R.id.btn_close_popup);
+    btnClosePopup.setOnClickListener(cancel_button_click_listener);
+
+    } catch (Exception e) {
+    e.printStackTrace();
+    }
+    }
+
+    private OnClickListener cancel_button_click_listenerr = new OnClickListener() {
+    public void onClick(View v) {
+    pwindo.dismiss();
+
+    }
+    };
 
     }
 }
+
+
